@@ -1,13 +1,13 @@
 [
   {
-    "id": "minimal-agent",
-    "name": "minimal-agent",
-    "description": "Bare minimum agent loop in 50 lines",
+    "id": "ts-001-agent",
+    "name": "ts-001-agent",
+    "description": "Minimal CLI agent with bash tool and approval flow",
     "language": "typescript",
-    "lines": 50,
-    "tools": ["stdout"],
+    "lines": 686,
+    "tools": ["bash"],
     "ui": "cli",
-    "repo": "https://github.com/1fileagent/minimal-agent",
+    "repo": "https://github.com/ShoichiTect/ts-001-agent",
     "added": "2026-03-11"
   }
 ]
