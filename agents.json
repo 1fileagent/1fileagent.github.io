@@ -1,0 +1,13 @@
+[
+  {
+    "id": "minimal-agent",
+    "name": "minimal-agent",
+    "description": "Bare minimum agent loop in 50 lines",
+    "language": "typescript",
+    "lines": 50,
+    "tools": ["stdout"],
+    "ui": "cli",
+    "repo": "https://github.com/1fileagent/minimal-agent",
+    "added": "2026-03-11"
+  }
+]

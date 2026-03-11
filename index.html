@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1fileagent</title>
+  <meta name="description" content="Collection of LLM agents implemented in a single source file.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+<body>
+
+  <header class="header">
+    <h1><span>1file</span>agent</h1>
+    <p>LLM agents in a single source file</p>
+    <div class="rule">agent implemented in a file</div>
+  </header>
+
+  <div class="controls">
+    <span id="count"></span>
+    <div>
+      sort:
+      <button class="sort-btn active" data-sort="new">new</button>
+      <button class="sort-btn" data-sort="lines">lines</button>
+      <button class="sort-btn" data-sort="name">name</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div id="detail"></div>
+
+  <footer class="footer">
+    <a href="https://github.com/1fileagent">github.com/1fileagent</a>
+  </footer>
+
+  <script>
+    let agents = [];
+
+    async function init() {
+      const res = await fetch('agents.json');
+      agents = await res.json();
+      renderCount();
+      renderGrid('new');
+      bindSort();
+    }
+
+    function renderCount() {
+      document.getElementById('count').textContent = agents.length + ' agents';
+    }
+
+    function renderGrid(sortKey) {
+      const sorted = [...agents].sort((a, b) => {
+        if (sortKey === 'new') return b.added.localeCompare(a.added);
+        if (sortKey === 'lines') return a.lines - b.lines;
+        if (sortKey === 'name') return a.name.localeCompare(b.name);
+      });
+
+      const grid = document.getElementById('grid');
+      grid.innerHTML = sorted.map(agent => `
+        <div class="card"
+             hx-get="agents/${agent.id}.html"
+             hx-target="#detail"
+             hx-swap="innerHTML">
+          <div class="card-name">${agent.name}</div>
+          <div class="card-desc">${agent.description}</div>
+          <div class="card-meta">
+            <span data-label="lang:">${agent.language}</span>
+            <span data-label="lines:">${agent.lines}</span>
+            <span data-label="ui:">${agent.ui}</span>
+          </div>
+        </div>
+      `).join('');
+
+      htmx.process(grid);
+    }
+
+    function bindSort() {
+      document.querySelectorAll('.sort-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderGrid(btn.dataset.sort);
+        });
+      });
+    }
+
+    init();
+  </script>
+
+</body>
+</html>
