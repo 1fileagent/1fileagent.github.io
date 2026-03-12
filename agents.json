@@ -9,5 +9,16 @@
     "ui": "cli",
     "repo": "https://github.com/ShoichiTect/ts-001-agent",
     "added": "2026-03-11"
+  },
+  {
+    "id": "x-agent",
+    "name": "x-agent",
+    "description": "X/Twitter read-only agent with Ink TUI",
+    "language": "typescript",
+    "lines": 635,
+    "tools": ["search_recent_tweets", "get_user_by_username", "get_tweet_by_id", "get_user_tweets", "get_user_mentions", "get_user_followers", "get_user_following"],
+    "ui": "tui",
+    "repo": "https://github.com/ShoichiTect/x-agent",
+    "added": "2026-03-12"
   }
 ]
