@@ -20,5 +20,16 @@
     "ui": "tui",
     "repo": "https://github.com/ShoichiTect/x-agent",
     "added": "2026-03-12"
+  },
+  {
+    "id": "go-001-agent",
+    "name": "go-001-agent",
+    "description": "Minimal Go TUI agent with Bubble Tea and bash tool",
+    "language": "go",
+    "lines": 1119,
+    "tools": ["bash"],
+    "ui": "tui",
+    "repo": "https://github.com/ShoichiTect/go-001-agent",
+    "added": "2026-03-13"
   }
 ]
