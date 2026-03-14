@@ -31,5 +31,16 @@
     "ui": "tui",
     "repo": "https://github.com/ShoichiTect/go-001-agent",
     "added": "2026-03-13"
+  },
+  {
+    "id": "go-002-agent",
+    "name": "go-002-agent",
+    "description": "Autonomous cron agent with session history and context injection",
+    "language": "go",
+    "lines": 1415,
+    "tools": ["cron", "chat"],
+    "ui": "tui",
+    "repo": "https://github.com/ShoichiTect/go-002-agent",
+    "added": "2026-03-14"
   }
 ]
