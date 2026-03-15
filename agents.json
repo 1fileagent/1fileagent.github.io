@@ -42,5 +42,16 @@
     "ui": "tui",
     "repo": "https://github.com/ShoichiTect/go-002-agent",
     "added": "2026-03-14"
+  },
+  {
+    "id": "go-003-agent",
+    "name": "go-003-agent",
+    "description": "Minimal Go chat agent with stdin/stdout and no tools",
+    "language": "go",
+    "lines": 335,
+    "tools": [],
+    "ui": "cli",
+    "repo": "https://github.com/ShoichiTect/go_003",
+    "added": "2026-03-16"
   }
 ]
